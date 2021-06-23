@@ -46,6 +46,8 @@ airports = {
 
 
 
+
+
 colors = ['red', 'green', 'purple', 'orange', 'brown',
           'black', 'olive', 'navy', 'white', 'black',
           'pink', 'chartreuse']

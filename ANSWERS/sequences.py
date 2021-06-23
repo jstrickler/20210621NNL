@@ -16,5 +16,5 @@ print()
 print("dirty:", fruits)
 clean_fruits = [ f.strip().lower() for f in fruits ]
 print("clean:", clean_fruits)
+print("clean_fruits: {}\n".format(clean_fruits))
 
-# print(', '.join(clean_fruits))
