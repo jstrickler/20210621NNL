@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python
 
 import sys
 import re
@@ -8,20 +8,19 @@ if len(sys.argv) < 3:
     sys.exit(1)
 
 try:
-    pat = re.compile(sys.argv[1])
-except Exception as e:
-    print("Error compiling RE: {0}".format(e))
+    pattern = re.compile(sys.argv[1])
+except re.error as e:
+    print("Error compiling RE: {}".format(e))
     sys.exit()
 
 for file_name in sys.argv[2:]:
     try:
-        f = open(file_name)
+        file_in = open(file_name)
     except IOError as e:
-        print("Unable to open {0}: {1}".format(file_name,e))
+        print("Unable to open {}: {}".format(file_name, e))
         continue
     else:
-        for line in f:
-            if pat.search(line):
-                print("{0}: {1}".format(file_name,line), end=' ')
-        f.close()
-    
+        for line in file_in:
+            if pattern.search(line):
+                print("{}: {}".format(file_name, line), end=' ')
+        file_in.close()
